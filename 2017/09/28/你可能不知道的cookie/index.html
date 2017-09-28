@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="你可能不知道的cookie大家都了解的cookie很多前端面试题都会考察cookie 大家一般都能答上的几个点：  不能跨域 存储空间有限，4KB 通过document.cookieAPI进行get和setcookie与其他本地存储的区别  1.大小不同，cookie是最小的。2.数量受限,每个域名下的cookie数量最多为20个（但很多浏览器厂商在具体实现时支持大于20个)3.某个域下的cook">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你可能不知道的cookie">
+<meta property="og:url" content="http://yoursite.com/2017/09/28/你可能不知道的cookie/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="你可能不知道的cookie大家都了解的cookie很多前端面试题都会考察cookie 大家一般都能答上的几个点：  不能跨域 存储空间有限，4KB 通过document.cookieAPI进行get和setcookie与其他本地存储的区别  1.大小不同，cookie是最小的。2.数量受限,每个域名下的cookie数量最多为20个（但很多浏览器厂商在具体实现时支持大于20个)3.某个域下的cook">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/17-09-29/21.png">
+<meta property="og:updated_time" content="2017-09-28T09:43:36.073Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你可能不知道的cookie">
+<meta name="twitter:description" content="你可能不知道的cookie大家都了解的cookie很多前端面试题都会考察cookie 大家一般都能答上的几个点：  不能跨域 存储空间有限，4KB 通过document.cookieAPI进行get和setcookie与其他本地存储的区别  1.大小不同，cookie是最小的。2.数量受限,每个域名下的cookie数量最多为20个（但很多浏览器厂商在具体实现时支持大于20个)3.某个域下的cook">
+<meta name="twitter:image" content="http://yoursite.com/images/17-09-29/21.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/28/你可能不知道的cookie/"/>
+
+
+
+
+
+  <title>你可能不知道的cookie | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/28/你可能不知道的cookie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="七里田间">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i.imgur.com/jZ64dYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你可能不知道的cookie</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-28T17:16:57+08:00">
+                2017-09-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="你可能不知道的cookie"><a href="#你可能不知道的cookie" class="headerlink" title="你可能不知道的cookie"></a>你可能不知道的cookie</h1><h2 id="大家都了解的cookie"><a href="#大家都了解的cookie" class="headerlink" title="大家都了解的cookie"></a>大家都了解的cookie</h2><p>很多前端面试题都会考察cookie 大家一般都能答上的几个点：</p>
+<ul>
+<li>不能跨域</li>
+<li>存储空间有限，4KB</li>
+<li>通过document.cookieAPI进行get和set<h2 id="cookie与其他本地存储的区别"><a href="#cookie与其他本地存储的区别" class="headerlink" title="cookie与其他本地存储的区别"></a>cookie与其他本地存储的区别</h2></li>
+</ul>
+<p>1.大小不同，cookie是最小的。<br>2.数量受限,每个域名下的cookie数量最多为20个（但很多浏览器厂商在具体实现时支持大于20个)<br>3.某个域下的cookie会自动随该域下的请求带在request header的cookie字段里。<br>4.可以设定过期时间。<br>5.可以设定path，而其他存储往往只有域的限制。<br>6存在httpOnly属性，只能由服务端设置，JS无法设置和获取。<br>7.可以设置secure属性,当设置为true时，只能在HTTPS连接中被浏览器传递到服务器端进行会话验证，如果是HTTP,连接则不会传递该信息，所以不会被窃取到Cookie的具体内容。<br>8.可以通过浏览器的清除历史功能清除<br>9.用户可以禁用cookie</p>
+<h2 id="cookie的应用场景"><a href="#cookie的应用场景" class="headerlink" title="cookie的应用场景"></a>cookie的应用场景</h2><ul>
+<li>cookie最大的特点是自动随该域下的请求带在request header的cookie字段里，而无需额外的JS操作，在做通用的登录认证系统的时候有着天然的优势。</li>
+<li>cookie有httpOnly属性，可以防止XSS攻击，安全性比其他存储更有保障。</li>
+<li>服务端在控制页面跳转的时候可以不通过JS方便的进行少量值的传递，控制页面的展示。</li>
+<li>静态资源CDN之所以放在非主域名下，很大一部分原因在于可以无需携带相关cookie，减少流量损耗。<h2 id="cookie的属性"><a href="#cookie的属性" class="headerlink" title="cookie的属性"></a>cookie的属性</h2></li>
+</ul>
+<p><img src="/images/17-09-29/21.png" alt=""></p>
+<h2 id="cookie的增删改查"><a href="#cookie的增删改查" class="headerlink" title="cookie的增删改查"></a>cookie的增删改查</h2><p>服务端和JS端都可以对cookie进行增删改查, cookie中不得包含任何逗号、分号或空格，（可以用encodeURIComponent()来保证）.</p>
+<h2 id="服务端设置cookie"><a href="#服务端设置cookie" class="headerlink" title="服务端设置cookie"></a>服务端设置cookie</h2><p>服务端通过在请求的response header中携带Set-Cookie字段对cookie进行设置, 格式与用JS设置cookie是相同的,都采用;进行属性分隔. 例如:</p>
+<pre><code>Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly
+</code></pre><h2 id="JS设置cookie"><a href="#JS设置cookie" class="headerlink" title="JS设置cookie"></a>JS设置cookie</h2><p>JS设置domain: 默认值为当前域, n级域名可以设置 小于n级域名的domain. 例如: 在www.baidu.com域下 可以将domain设置为 baidu.com, 但是不能设置为a.www.baidu.com, 也不能设置为tieba.baidu.com,更不能设置为sina.com.</p>
+<p>JS设置path: 默认为/, path的设置不受限制, 比如我可以在im.baidu.com/todo下将cookie的path设置为/search</p>
+<p>JS对于secure属性,无论get还是set ,必须在https下,</p>
+<p>JS不能设置httponly属性,</p>
+<p>删除cookie: 指定key, domain, path 必须与想要删掉的cookie一模一样, 然后将expires的值设为一个过期值,即可删除.</p>
+<p>修改cookie: 指定key, domain, path 必须与想要修改的cookie一模一样, 否则将创建一个不同的cookie,然后设置想要更新的value或expires值.</p>
+<pre><code>        var cookie = {
+    getCookie: function (key) {
+        return decodeURIComponent(document.cookie.replace(new RegExp(&quot;(?:(?:^|.*;)\\s*&quot; + encodeURIComponent(key).replace(/[\-\.\+\*]/g, &quot;\\$&amp;&quot;) + &quot;\\s*\\=\\s*([^;]*).*$)|^.*$&quot;), &quot;$1&quot;)) || null;
+    },
+
+    setCookie: function (opts) {
+        if (Object.prototype.toString.call(opts) !== &quot;[object Object]&quot;) {
+            return;
+        }
+        if (!opts.key) {
+            return;
+        }
+        if (!opts.value) {
+            opts.value = &apos;&apos;;
+        }
+        var tmp = opts.key + &apos;=&apos; + encodeURIComponent(opts.value) + &apos;;&apos;;
+        if (opts.expires) {
+            tmp += &apos;expires=&apos; + new Date(new Date().getTime() + opts.expires * 1000).toGMTString() + &apos;;&apos;;
+        }
+        if (opts.path) {
+            tmp += (&apos;path=&apos; + opts.path + &apos;;&apos;);
+        }
+
+        if (opts.domain) {
+            tmp += (&apos;domain=&apos; + opts.domain + &apos;;&apos;);
+        }
+
+        if (opts.secure) {
+            tmp += &apos;secure&apos;
+        }
+        document.cookie = tmp;
+    },
+
+    delCookie: function (opts) {
+        cookie.setCookie({
+            key: opts.key,
+            value: &apos;&apos;,
+            expired: -1000000000,
+            path: opts.path,
+            domain: opts.domain,
+        })
+    },
+}
+</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="判断是否启用cookie"><a href="#判断是否启用cookie" class="headerlink" title="判断是否启用cookie"></a>判断是否启用cookie</h3><p>使用navigator.cookieEnabled可以判断用户是否启用cookie</p>
+<pre><code>if (!navigator.cookieEnabled) {
+      // 让用户知道,开启网页中的cookies是很有必要的.
+}
+</code></pre><h3 id="是否可以直接修改header中的cookie字段"><a href="#是否可以直接修改header中的cookie字段" class="headerlink" title="是否可以直接修改header中的cookie字段?"></a>是否可以直接修改header中的cookie字段?</h3><p>Ajax请求可以设置header,但是某些header字段无法设置,比如refer, cookie等.</p>
+<h3 id="cookie自动删除"><a href="#cookie自动删除" class="headerlink" title="cookie自动删除"></a>cookie自动删除</h3><p>cookie 会被浏览器自动删除，通常存在以下几种原因：</p>
+<ul>
+<li>会话 cooke (Session cookie) 在会话结束时（浏览器关闭）会被删除</li>
+<li>持久化 cookie（Persistent cookie）在到达失效日期时会被删除</li>
+<li>如果浏览器中的 cookie 数量达到限制，那么 cookie 会被删除以为新建的 cookie 创建空间。<h2 id="CORS请求携带cookie"><a href="#CORS请求携带cookie" class="headerlink" title="CORS请求携带cookie"></a>CORS请求携带cookie</h2></li>
+</ul>
+<p>CORS请求默认不发送Cookie和HTTP认证信息。如果要把Cookie发到服务器，一方面要服务器同意，指定Access-Control-Allow-Credentials字段。</p>
+<pre><code>Access-Control-Allow-Credentials: true
+</code></pre><p>另一方面，开发者必须在AJAX请求中打开withCredentials属性。</p>
+<pre><code>var xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
+</code></pre><p>否则，即使服务器同意发送Cookie，浏览器也不会发送。或者，服务器要求设置Cookie，浏览器也不会处理。</p>
+<p>需要注意的是，如果要发送Cookie，Access-Control-Allow-Origin就不能设为星号，必须指定明确的、与请求网页一致的域名。同时，Cookie依然遵循同源政策，只有用服务器域名设置的Cookie才会上传，其他域名的Cookie并不会上传，且（跨源）原网页代码中的document.cookie也无法读取服务器域名下的Cookie。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Set-Cookie" target="_blank" rel="external">MDN Set-Cookie</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie" target="_blank" rel="external">MDN Document/cookie</a></li>
+<li><a href="https://segmentfault.com/a/1190000004556040" target="_blank" rel="external">聊一聊 cookie</a></li>
+<li><a href="https://www.cloudxns.net/Support/detail/id/1887.html" target="_blank" rel="external">深入浅出cookie</a></li>
+<li><a href="http://bubkoo.com/2014/04/21/http-cookies-explained/" target="_blank" rel="external">HTTP cookies 详解</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/cookieEnabled" target="_blank" rel="external">MDN cookieEnabled</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/28/实现一个高度自适应的输入框/" rel="next" title="实现一个高度自适应的输入框">
+                <i class="fa fa-chevron-left"></i> 实现一个高度自适应的输入框
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i.imgur.com/jZ64dYw.jpg"
+               alt="七里田间" />
+          <p class="site-author-name" itemprop="name">七里田间</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#你可能不知道的cookie"><span class="nav-number">1.</span> <span class="nav-text">你可能不知道的cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#大家都了解的cookie"><span class="nav-number">1.1.</span> <span class="nav-text">大家都了解的cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie与其他本地存储的区别"><span class="nav-number">1.2.</span> <span class="nav-text">cookie与其他本地存储的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie的应用场景"><span class="nav-number">1.3.</span> <span class="nav-text">cookie的应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie的属性"><span class="nav-number">1.4.</span> <span class="nav-text">cookie的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie的增删改查"><span class="nav-number">1.5.</span> <span class="nav-text">cookie的增删改查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务端设置cookie"><span class="nav-number">1.6.</span> <span class="nav-text">服务端设置cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JS设置cookie"><span class="nav-number">1.7.</span> <span class="nav-text">JS设置cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.8.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#判断是否启用cookie"><span class="nav-number">1.8.1.</span> <span class="nav-text">判断是否启用cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#是否可以直接修改header中的cookie字段"><span class="nav-number">1.8.2.</span> <span class="nav-text">是否可以直接修改header中的cookie字段?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie自动删除"><span class="nav-number">1.8.3.</span> <span class="nav-text">cookie自动删除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORS请求携带cookie"><span class="nav-number">1.9.</span> <span class="nav-text">CORS请求携带cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.10.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">七里田间</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
