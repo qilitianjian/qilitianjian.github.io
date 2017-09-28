@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-28T07:23:07.385Z</updated>
+  <updated>2017-09-28T08:07:42.644Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,155 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实现一个高度自适应的输入框</title>
+    <link href="http://yoursite.com/2017/09/28/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E7%9A%84%E8%BE%93%E5%85%A5%E6%A1%86/"/>
+    <id>http://yoursite.com/2017/09/28/实现一个高度自适应的输入框/</id>
+    <published>2017-09-28T07:51:34.000Z</published>
+    <updated>2017-09-28T08:07:42.644Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实现一个高度自适应的输入框"><a href="#实现一个高度自适应的输入框" class="headerlink" title="实现一个高度自适应的输入框"></a>实现一个高度自适应的输入框</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ul>
+<li>实现一个输入框，高度可以随着输入文字的增加而自动增高，类似于微信输入</li>
+<li>输入为空时，显示placeholder</li>
+<li><p>字数限制maxlength  </p>
+<h3 id="方法1：使用textarea配合工具函数autosize实现高度自适应的输入框-支持IE9-，具体代码如下："><a href="#方法1：使用textarea配合工具函数autosize实现高度自适应的输入框-支持IE9-，具体代码如下：" class="headerlink" title="方法1：使用textarea配合工具函数autosize实现高度自适应的输入框(支持IE9+)，具体代码如下："></a>方法1：使用textarea配合工具函数autosize实现高度自适应的输入框(支持IE9+)，具体代码如下：</h3><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        textarea {
+            resize: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/autosize.min.js&quot;&gt;&lt;/script&gt;
+&lt;body&gt;
+    &lt;textarea id=&quot;textarea&quot; rows=&quot;1&quot; placeholder=&quot;请输入内容...&quot; maxlength=&quot;50&quot;&gt;&lt;/textarea&gt;
+&lt;/body&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    autosize(document.querySelector(&apos;#textarea&apos;));
+&lt;/script&gt;
+&lt;/html&gt;
+</code></pre></li>
+</ul>
+<p>注：因为textarea的默认高度为rows=2,所以需要将textarea的rows设置为1</p>
+<h3 id="方法2：div加属性contenteditable-true"><a href="#方法2：div加属性contenteditable-true" class="headerlink" title="方法2：div加属性contenteditable=true"></a>方法2：div加属性contenteditable=true</h3><h4 id="我们知道可以将div的contenteditable设置伪true，将其变为可输入状态。代码如下："><a href="#我们知道可以将div的contenteditable设置伪true，将其变为可输入状态。代码如下：" class="headerlink" title="我们知道可以将div的contenteditable设置伪true，将其变为可输入状态。代码如下："></a>我们知道可以将div的contenteditable设置伪true，将其变为可输入状态。代码如下：</h4><pre><code>&lt;div contenteditable=&quot;true&quot;&gt;&lt;/div&gt;
+</code></pre><p>这样就满足了我们的第一个需求——高度自适应。但是在手机上测试会发现第一个问题，iOS上面无法输入。经过查找资料，发现只需要为其添加如下样式即可:</p>
+<pre><code> div{
+    user-select:text;
+    -webkit-user-select:text;
+}
+</code></pre><h3 id="实现placeholder"><a href="#实现placeholder" class="headerlink" title="实现placeholder"></a>实现placeholder</h3><h4 id="使用css-js实现-placeholder，思路：根据输入通过动态添加class，模拟placeHolder的行为，代码如下"><a href="#使用css-js实现-placeholder，思路：根据输入通过动态添加class，模拟placeHolder的行为，代码如下" class="headerlink" title="使用css+js实现 placeholder，思路：根据输入通过动态添加class，模拟placeHolder的行为，代码如下:"></a>使用css+js实现 placeholder，思路：根据输入通过动态添加class，模拟placeHolder的行为，代码如下:</h4><pre><code>// css
+.textarea {
+width: 400px;
+min-height: 20px;
+max-height: 300px;
+_height: 120px;
+margin-left: auto;
+margin-right: auto;
+padding: 3px;
+outline: 0;
+border: 1px solid #a0b3d6;
+font-size: 12px;
+line-height: 24px;
+padding: 2px;
+word-wrap: break-word;
+overflow-x: hidden;
+overflow-y: auto;
+border-color: rgba(82, 168, 236, 0.8);
+box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+position: relative;
+user-select: text;
+-webkit-user-select: text;
+}
+.placeholder:before {
+content: &apos;请输入内容...&apos;;
+line-height: 30px;
+position: absolute;
+left: 5px;
+top: 0;
+z-index: 1;
+}
+// html
+&lt;div class=&quot;textarea placeholder&quot; contenteditable=&quot;true&quot; data-placeholder=&quot;请输入内容...&quot; data-length=&quot;10&quot;&gt;&lt;br /&gt;&lt;/div&gt;
+// js
+var oInputBox = document.querySelector(&apos;.textarea&apos;);
+oInputBox.oninput = oInputBox.onpropertychange = function (ev) {
+var innterStr = oInputBox.innerText;
+var _this = this;
+
+// placeholder
+if (innterStr.length == 0) {
+_this.classList.add(&apos;placeholder&apos;);
+} else {
+_this.classList.remove(&apos;placeholder&apos;);
+}
+};
+</code></pre><p>到此，我们已经实现了第二个需求——可以设置placeholder</p>
+<h4 id="实现maxlength"><a href="#实现maxlength" class="headerlink" title="实现maxlength"></a>实现maxlength</h4><p>同样的，我们也不能通过直接设置maxlength来满足需求。所以通过监听input事件来实时计算长度。</p>
+<pre><code>var oInputBox = document.querySelector(&apos;.textarea&apos;);
+oInputBox.oninput = oInputBox.onpropertychange = function (ev) {
+    var innterStr = oInputBox.innerText;
+    var _this = this;
+
+    // maxlength
+    var len = parseInt(_this.getAttribute(&apos;data-length&apos;));
+    if (innterStr.length &gt; len) {
+        oInputBox.innerText = innterStr.substring(0,len);
+    }
+};
+</code></pre><p>以上代码看上去没有问题，但是会发现光标会跑到最前方，这样就会造成不好的用户体验，甚至出现Bug。所以在截取了最大长度的用户输入后，我们还需要将光标放到最后。完整JS代码如下：</p>
+<p>var oInputBox = document.querySelector(‘.textarea’);<br>oInputBox.oninput = oInputBox.onpropertychange = function (ev) {<br>    var innterStr = oInputBox.innerText;<br>    var _this = this;</p>
+<pre><code>// placeholder
+if (innterStr.length == 0) {
+    _this.classList.add(&apos;placeholder&apos;);
+} else {
+    _this.classList.remove(&apos;placeholder&apos;);
+}
+// maxlength
+var len = parseInt(_this.getAttribute(&apos;data-length&apos;));
+if (innterStr.length &gt; len) {
+    oInputBox.innerText = innterStr.substring(0,len);
+}
+
+// div innerText重新赋值之后的光标问题
+
+if(navigator.userAgent.indexOf(&apos;MSIE&apos;) &gt; -1) {
+    var range = document.selection.createRange();
+    _this.last = range;
+    range.moveToElementText(_this);
+    range.select();
+    document.selection.empty(); //取消选中
+} else {
+    var range = document.createRange();
+    range.selectNodeContents(_this);
+    range.collapse(false);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+}
+};
+</code></pre><p>到此为止，一个可以自动增加高度，并且支持placeholder和maxlength的输入框就完成了。</p>
+<h2 id="要点总结："><a href="#要点总结：" class="headerlink" title="要点总结："></a>要点总结：</h2><ul>
+<li>方法1：autosizejs方法通过监听textarea的input、keyup事件动态的获取其scrollHeight，计算出实际高度并配合overflow属性的改变来动态的改变 textarea的高度，此方法使用的时候需要注意的是textarea的rows属性要设置为1，两行以内的高度自适应就会出现问题；兼容性：IE9+</li>
+<li>方法2：div设置contentEditable为true后，输入或删除内容时，其高度本身就会随着内容的变化而变化，我们需要解决的问题只是在输入过程中光标的位置问题；兼容性：IE11及其他高级浏览器</li>
+</ul>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><h3 id="autosize-高度自适应输入框"><a href="#autosize-高度自适应输入框" class="headerlink" title="autosize 高度自适应输入框"></a><a href="https://juejin.im/post/591132902f301e006c304e8e" target="_blank" rel="external">autosize 高度自适应输入框</a></h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;实现一个高度自适应的输入框&quot;&gt;&lt;a href=&quot;#实现一个高度自适应的输入框&quot; class=&quot;headerlink&quot; title=&quot;实现一个高度自适应的输入框&quot;&gt;&lt;/a&gt;实现一个高度自适应的输入框&lt;/h1&gt;&lt;h2 id=&quot;需求&quot;&gt;&lt;a href=&quot;#需求&quot; cla
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>前端之切切切切切图</title>
