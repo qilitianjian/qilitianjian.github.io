@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-28T05:53:11.800Z</updated>
+  <updated>2017-09-28T07:23:07.385Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,104 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>前端之切切切切切图</title>
+    <link href="http://yoursite.com/2017/09/28/%E5%89%8D%E7%AB%AF%E4%B9%8B%E5%88%87%E5%88%87%E5%88%87%E5%88%87%E5%88%87%E5%9B%BE/"/>
+    <id>http://yoursite.com/2017/09/28/前端之切切切切切图/</id>
+    <published>2017-09-28T06:44:08.000Z</published>
+    <updated>2017-09-28T07:23:07.385Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前端之切切切切切图"><a href="#前端之切切切切切图" class="headerlink" title="前端之切切切切切图"></a>前端之切切切切切图</h1><p>身为前端，除了与风格迥异的代码打交道，还有一个很常见的就是跟设计师对接，从他们提供的 psd 里面扣出需要用到的小图标等等。下面就讲讲切图的各种姿势</p>
+<h2 id="photoshop"><a href="#photoshop" class="headerlink" title="photoshop"></a>photoshop</h2><h3 id="快速导出法"><a href="#快速导出法" class="headerlink" title="快速导出法"></a>快速导出法</h3><p>首先来一个很傻瓜的也很常用的一个方法，对于少量图标适用：</p>
+<ol>
+<li>将你想要扣出来的图标复制一遍（command+c）</li>
+<li>新建图层（command+n），通常来说默认的大小就是你剪切板里复制的图的大小</li>
+<li>粘贴图层（command+v）</li>
+<li>保存为网页格式（command+option+shift+s）或者直接导出（command+option+shift+w）</li>
+</ol>
+<p>进阶一点：<br>直接选中要导出的图层，右键导出为，然后选择保存的格式，位置…<br>使用这种方法的话要注意，如果你的设计师给出的图层是带有蒙版带有或者有大片的透明背景，就会发现的想要的和导出的可能并不太一致了。</p>
+<p>更进阶一点：<br>随着时间的更新，ps cc 之后提供了快速导出功能，默认快速导出为 png。这样就不用每次选格式大小了，一次配置到处使用。<br><img src="/images/17-09-29/1.png" alt=""><br>配置的更改：<strong>preference（首选项）&gt; Export（导出）</strong></p>
+<p>可以修改默认的导出格式，如果懒的话还可以设置直接把文件导出到当前 psd 文档位置的 assets 文件夹下面，就不用每次都要选择保存的位置了。<br><img src="/images/17-09-29/2.png" alt=""></p>
+<p>设置完成之后，就可以通过文件-&gt;快速导出为xxx 或者选中图层右键-&gt;导出为xxx的方式导出图标</p>
+<p><img src="/images/17-09-29/3.png" alt=""></p>
+<h2 id="快速切片法"><a href="#快速切片法" class="headerlink" title="快速切片法"></a>快速切片法</h2><p>再说说切片，应该也是大家很熟悉的一个方法，需要导出多个图标的时候比较好用。<br>选择切片工具，把背景隐藏了，开始框选想要的内容，然后保存。<br><img src="/images/17-09-29/4.png" alt=""></p>
+<p>这样子一个两个还好，多了每次手动拉的大小并不一定贴边，而且对于多个需要大小一致的 icon 来讲，每次都刚好拉到一样大，臣妾做不到啊。因此我们需要快速切片的方法：</p>
+<p>1.通过参考线切片</p>
+<p>选中切片工具之后，可以看到工具栏上方有一个使用参考线切片的按钮，因此我们可以考虑把想要切片的形状都用参考线给包围起来，然后就可以一键导出<br><img src="/images/17-09-29/5.png" alt=""></p>
+<p>那么如何快速的新建参考线呢，command+r 打开标尺然后手动去一根根的拉太浪费时间了。这里提供一个比较少人用到的知识，<strong>view（视图）-&gt; New Guide From Shape（通过形状新建参考线）</strong>。</p>
+<p>身为一个懒人，首先可以设置一个快捷键，<strong>Edit（编辑） -&gt; keyboard shortcuts</strong>，找到 通过形状新建参考线 这一栏目，随便设置一个顺手的且不冲突的，比如我这里设置的是 Shift + command + 1</p>
+<p><img src="/images/17-09-29/6.png" alt=""></p>
+<p>接下来你就可以选中图层，按下快捷键，参考线就服服帖帖的生成了（配合自动选择食用味道更佳喔），放张动图欣赏下：</p>
+<p><img src="/images/17-09-29/7.png" alt=""></p>
+<p>最后点击切片工具上面的使用参考线切片的按钮，选择你需要的切片导出就好了。</p>
+<p>2.利用标准化模板创建切片</p>
+<p>通过形状新建参考线最然很酷，但是对于不需要贴边切的情况，例如刚才所说的切出多个大小相同的图标，还需要进一步探索。方法还是很简单的：<br>首先需要新建一个标准大小的模版，例如我这里随便画了个正方形，表示以后切片的大小。</p>
+<p><img src="/images/17-09-29/8.png" alt=""></p>
+<p>按 ctrl+j 复制该图层并将其铺到你想要切的图下面</p>
+<p><img src="/images/17-09-29/9.png" alt=""></p>
+<p>然后选中这些图层，并点击 <strong>layer（图层） -&gt; New Layer Basic Slice （新建基于图层的切片）</strong></p>
+<p><img src="/images/17-09-29/10.png" alt=""><br><img src="/images/17-09-29/11.png" alt=""></p>
+<p>当当当当，图都切好了最后导出。</p>
+<p><img src="/images/17-09-29/12.png" alt=""></p>
+<p>最后说点切片工具使用的注意事项，注意把没用的信息都隐藏了，特别是切 icon 时背景啊旁边的小字体什么的。例如上面的演示理论上都是不合格的拉～</p>
+<h2 id="录制动作"><a href="#录制动作" class="headerlink" title="录制动作"></a>录制动作</h2><p>身为程序汪，每次都让你重复一样的动作，就像写重复的代码，肯定是不爽的。此时我们就可以写一个函数来封装一下自己的动作，ps 也提供了录制动作的功能。</p>
+<p><strong>window -&gt; Actions</strong>或者快捷键 option+F9 调出录制动作面板</p>
+<p><img src="/images/17-09-29/13.png" alt=""></p>
+<p><img src="/images/17-09-29/14.png" alt=""></p>
+<p>输入动作的名称以及快捷键之后，就可以进行你想要录制的操作，比如点击 将图片导出为 png 格式：复制当前图层，新建文件，粘贴，保存为 png 格式。接着点击最左边的停止按钮，你的动作就录制好了 。</p>
+<p>tips：快捷键也会被记录，所以可以放心大胆的时候用。不过最好一次性做完你想要的动作，不然多余的动作也会被记录速度可能会慢点。</p>
+<p><img src="/images/17-09-29/15.png" alt=""></p>
+<p>然后选中你新建的动作，或者输入快捷键，动作就运行了。比如我刚刚创建的动作，选中图层按 shift+F6 之后，图片就保存在你设置的文件夹里面了。（动作完成之后并没有提示，直接去文件夹看吧）</p>
+<h2 id="自动切图（含WebP、SVG格式）"><a href="#自动切图（含WebP、SVG格式）" class="headerlink" title="自动切图（含WebP、SVG格式）"></a>自动切图（含WebP、SVG格式）</h2><p>截止到这里，上面的还是是要手动拖拖拽拽各种设置，而且还是很麻烦，这里就介绍一下 ps 新出的黑科技，自动生成图像资源。</p>
+<p>版本要求：ps cc</p>
+<p>首先 command+k 打开 <strong>Preferences(首选项)</strong>，点击 <strong>Plug-Ins(增效工具)</strong>，确认 <strong>Generate（生成器）-&gt; Image Assets（图像资源)</strong> 为启用状态<br>然后点击菜单“文件-&gt;生成-&gt;图像资源”，确认该菜单项已被勾选；</p>
+<p><img src="/images/17-09-29/16.png" alt=""></p>
+<p>接下来只需要将图层命名(如 icon.png)，文件就会乖乖的躺在在<strong> psd 文件所在目录下的 “文件名-assets” </strong>的目录下了(∩´・ω・｀⊂)</p>
+<p>tips：  </p>
+<ol>
+<li>文件夹也可以喔   </li>
+<li>@2x Retina 图片的输出，在图层前添加 200% 即可，如 200% logo@2x.png ;<br>更多信息可参考<a href="https://helpx.adobe.com/cn/photoshop/using/generate-assets-layers.html" target="_blank" rel="external">官方文档</a></li>
+</ol>
+<p>如果要生成svg或者webp的格式需要在用户的根目录~下新建一个文件夹，名为 generator.json，内容为</p>
+<pre><code>{
+    &quot;generator-assets&quot;: {
+        &quot;svg-enabled&quot;: true,
+        &quot;webp-enabled&quot;: true
+    }
+}
+</code></pre><p><img src="/images/17-09-29/17.png" alt=""></p>
+<h2 id="其他小技巧"><a href="#其他小技巧" class="headerlink" title="其他小技巧"></a>其他小技巧</h2><h3 id="复制-css"><a href="#复制-css" class="headerlink" title="复制 css"></a>复制 css</h3><p>对于一些图片有圆角阴影之类的效果，很难用眼睛去评估具体大小，这时候复制 css 样式的功能就很有用。选中图层点击右键 copy css，在编辑器里粘贴就可以看到你复制的内容。</p>
+<p><img src="/images/17-09-29/18.png" alt=""></p>
+<p>tips：  </p>
+<ol>
+<li>智能对象暂不支持”复制 CSS ” 功能，可以栅格化该图层再来使用。  </li>
+<li>对于多个图层的批量获取，请选择多个图层，执行 Ctrl+G，将所选图层转为图层组。然后在该组上右击，选择”复制 CSS”，即可批量获取 CSS 代码。</li>
+</ol>
+<h3 id="打开关闭所有其他组"><a href="#打开关闭所有其他组" class="headerlink" title="打开关闭所有其他组"></a>打开关闭所有其他组</h3><p>大多人都知道：点击图层/组前面的小眼睛可以显示关闭该图层/组<br>还有一个功能来打开/关闭所有其他图层：按住 option 再点击，效果如下</p>
+<p><img src="/images/17-09-29/19.png" alt=""></p>
+<h3 id="智能参考线"><a href="#智能参考线" class="headerlink" title="智能参考线"></a>智能参考线</h3><p>在测量间距的时候，智能参考线就可以大限身手了。<br><strong>view(视图) -&gt; show(显示) -&gt; smart guides(智能参考线)</strong></p>
+<p>查看图层之间的距离：选定某个图层后，在按住 Cmd 键（Mac）或 Ctrl 键（Windows）的同时将光标悬停在另一图层上方，就可以看到他们之间的距离。</p>
+<p><img src="/images/17-09-29/20.png" alt=""></p>
+<p>当你的光标悬停在形状以外时候，Photoshop 会显示与画布之间的距离。</p>
+<p><img src="/images/17-09-29/21.png" alt=""></p>
+<p>更多使用方法参见：<a href="https://helpx.adobe.com/cn/photoshop/using/grid-guides.html" target="_blank" rel="external">网格和参考线</a></p>
+<h2 id="sketch"><a href="#sketch" class="headerlink" title="sketch"></a>sketch</h2><p>这里直接上一<a href="http://sketch.im/index.php?m=content&amp;c=index&amp;a=lists&amp;catid=49" target="_blank" rel="external">官方教程</a></p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>因为本文写作场景是在 mac 下且 Photoshop 为英文版，所以本文的快捷键大多都是基于 mac 的，如果使用 windows 系统需要做相应的转换。以及，一些操作的命令主要为个人根据印象翻译，如果有不准确请见谅。</p>
+<p>其他资源推荐：</p>
+<p>Photoshop 常用快捷键：<a href="http://www.uisdc.com/45-handy-photoshop-shortcuts" target="_blank" rel="external">http://www.uisdc.com/45-handy-photoshop-shortcuts</a></p>
+<p>最后推荐一个神器：<a href="https://www.mediaatelier.com/CheatSheet/" target="_blank" rel="external">CheatSheet</a>，安装之后他会读取你目前在使用的软件的快捷键配置，并快速显示给你（就不用一个个层级去找了）。</p>
+<p>使用方法：长按command</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前端之切切切切切图&quot;&gt;&lt;a href=&quot;#前端之切切切切切图&quot; class=&quot;headerlink&quot; title=&quot;前端之切切切切切图&quot;&gt;&lt;/a&gt;前端之切切切切切图&lt;/h1&gt;&lt;p&gt;身为前端，除了与风格迥异的代码打交道，还有一个很常见的就是跟设计师对接，从他们提供的
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Chrome 调试工具的一些高阶功能</title>
