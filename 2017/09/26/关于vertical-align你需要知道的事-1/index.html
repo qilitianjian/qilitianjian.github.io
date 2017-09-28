@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="关于Vertical-Align你需要知道的事情在遇到将元素在垂直方向上对齐的需求时，CSS提供了多种方法，有时候我用float解决，有时候我使用position:absolute解决，还有时候采用的方法是手动调整margin和padding。其实我并不喜欢这些解决方法，float会让元素的顶端对齐而且需要手动清楚浮动。绝对定位让元素脱离了正常流，这样这些元素就不会再影响到周围的元素。在元素的pa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于vertical-align你需要知道的事">
+<meta property="og:url" content="http://yoursite.com/2017/09/26/关于vertical-align你需要知道的事-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于Vertical-Align你需要知道的事情在遇到将元素在垂直方向上对齐的需求时，CSS提供了多种方法，有时候我用float解决，有时候我使用position:absolute解决，还有时候采用的方法是手动调整margin和padding。其实我并不喜欢这些解决方法，float会让元素的顶端对齐而且需要手动清楚浮动。绝对定位让元素脱离了正常流，这样这些元素就不会再影响到周围的元素。在元素的pa">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/1.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/2.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/3.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/4.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/5.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/6.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/7.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/8.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/9.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/11.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/12.png">
+<meta property="og:image" content="http://yoursite.com/images/17-09-22/13.png">
+<meta property="og:updated_time" content="2017-09-28T06:01:49.019Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于vertical-align你需要知道的事">
+<meta name="twitter:description" content="关于Vertical-Align你需要知道的事情在遇到将元素在垂直方向上对齐的需求时，CSS提供了多种方法，有时候我用float解决，有时候我使用position:absolute解决，还有时候采用的方法是手动调整margin和padding。其实我并不喜欢这些解决方法，float会让元素的顶端对齐而且需要手动清楚浮动。绝对定位让元素脱离了正常流，这样这些元素就不会再影响到周围的元素。在元素的pa">
+<meta name="twitter:image" content="http://yoursite.com/images/17-09-22/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/26/关于vertical-align你需要知道的事-1/"/>
+
+
+
+
+
+  <title>关于vertical-align你需要知道的事 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/26/关于vertical-align你需要知道的事-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="七里田间">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://i.imgur.com/jZ64dYw.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">关于vertical-align你需要知道的事</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T09:32:23+08:00">
+                2017-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="关于Vertical-Align你需要知道的事情"><a href="#关于Vertical-Align你需要知道的事情" class="headerlink" title="关于Vertical-Align你需要知道的事情"></a>关于Vertical-Align你需要知道的事情</h1><p>在遇到将元素在垂直方向上对齐的需求时，CSS提供了多种方法，有时候我用float解决，有时候我使用position:absolute解决，还有时候采用的方法是手动调整margin和padding。<br>其实我并不喜欢这些解决方法，float会让元素的顶端对齐而且需要手动清楚浮动。绝对定位让元素脱离了正常流，这样这些元素就不会再影响到周围的元素。在元素的padding和margin固定的情况下，一点小的改变也很有可能对布局造成影响。<br>接下来登场的就是本文的主角了：Vertical-align。通常来说使用这个属性进行布局是一种hack行为，因为它本来并不是被用于这个目的。它用在文本和与文本相邻元素的垂直方向上的对齐问题。然而，你也可以使用Vertical-align在不同的上下文中对元素进行灵活的，细粒度的排布。元素的尺寸无需知晓，元素任然处于正常流当中，因此元素的变化会影响到周围的元素，这使得Vertical-align是非常有价值的排布方案的选择。</p>
+<h2 id="Vertical-align的奇特之处"><a href="#Vertical-align的奇特之处" class="headerlink" title="Vertical-align的奇特之处"></a>Vertical-align的奇特之处</h2><p>Vertical-align有时候会变的面目狰狞。它似乎有一些谜一样的规则。举例来说，有时候你改变了Vertical-align的值，但是该元素垂直方向上没有发生改变反而别的元素改变了位置。<br>一些资料在谈到Vertical-align这个问题的时候深入程度不够，特别是当人们想使用这个属性布局的时候。这些资料更多的将精力集中在了一个误区上，就是尝试将元素内的一切都垂直对齐。他们给出了一下在简单情况下的例子来解释Vertical-align这个属性而忽略了一些复杂奇怪的方面。</p>
+<h2 id="使用Vertical-align的要求"><a href="#使用Vertical-align的要求" class="headerlink" title="使用Vertical-align的要求"></a>使用Vertical-align的要求</h2><p>Vertical-align被用于垂直对齐inline元素，也就是display值为inline和inline-block的元素。inline-table的元素不在本文的讨论范围内。<br>inline元素基本上值得就是文本<br>inline-block元素就像它的名字一样，同时具备inline元素和block元素的特点，这样的元素有padding,margin,border,width,height。其中高度有可能是由元素的内容决定的。<br>inline元素一个挨着一个的摆放在行内，当行内元素太多的情况下，一个新行会被创建出来，这些行也叫做line–box。它将行内的所有内容都包裹了起来。根据行内内容的不同，line-box的尺寸也会不同，在接下来的图里面，红线代表了line-box的上下边界</p>
+<p><img src="/images/17-09-22/1.png" alt=""><br>在这些line-box内，Vertical-align属性负责对齐一些独立的元素。那么，这些元素是要和谁对齐呢？</p>
+<h2 id="关于边界和baseline"><a href="#关于边界和baseline" class="headerlink" title="关于边界和baseline"></a>关于边界和baseline</h2><p>对于垂直对齐这个知识点来说最重要的就是涉及元素的baseline。有时候元素的盒模型的上下边界也会变的很重要。下面上图</p>
+<p><img src="/images/17-09-22/2.png" alt=""><br>如图所示有三行文字。行高的上下边界是红线。文字的上下边界是绿色的线，蓝色的线就是baseline了，左边文字的高度与行高是一致的，因此绿线和红线重合了，中间的行高是文字大小的两倍，而在右边，行高是文字大小的二分之一。<br>行内元素的外边缘在行高的上边缘和下边缘这个范围内对齐，如果行高小于文字的高度也无所谓。关于baseline的定义还是直接给出标准的链接</p>
+<h2 id="inline-block元素"><a href="#inline-block元素" class="headerlink" title="inline-block元素"></a>inline-block元素</h2><p><img src="/images/17-09-22/3.png" alt=""><br>从左到右的三幅图片都是inline-block元素，不同的是，左面包含着没有脱离正常流的内容c，中间的除了没有脱离正常流的内容以外还加了overflow:hidden,右面的没有内容但是内容区还有高度。红线代表了margin-box的边界。黄色代表的是border，绿色的是padding，蓝色的是content，蓝色的线代表的还是baseline。<br>inline-block元素的外边缘就是margin-box的边缘。<br>inline-block元素的baseline的位置要看该元素有没有处于正常流之内的内容。<br>(1).在有处于正常流内容的情况下，inline-block元素的baseline就是最后一个作为内容存在的元素的baseline，这个元素的baseline的确定就要根据他自身来确定了。<br>(2).在overflow属性不为visible的情况下，baseline就是margin-box的下边界了。<br>(3).第三种情况下baseline还是margin-box的下边界。</p>
+<h2 id="line-box"><a href="#line-box" class="headerlink" title="line-box"></a>line-box</h2><p><img src="/images/17-09-22/4.png" alt=""><br>关于line-box的图上面已经给过了，这次我将文字部分高亮显示。line-box的上边界与最高元素的上边界对齐，下边界与最低元素的下边界对齐。<br>W3C标准中并没有定义line-box的baseline的位置。这一点很让人困惑，baseline的位置需要满足vertical-align属性的值以及让line-box的高度最小等条件，是一个很灵活的参数。<br>line-box的baseline是不可见的，但是可以很轻松的将它可视化出来，在行的开头添加一个字母，比如’x’，这个字母的下边界默认就是baseline的位置。围绕着baseline在line-box中形成了文字盒。文字盒可以被认为是没有和任何元素对齐的line-box中的inline元素，它的告诉与它的父元素的font-size的值相同。因此，文字盒仅仅包含非格式化的line-box的文本，文字盒的边界由绿线来表示。因为文字盒是紧挨着baseline的，所以baseline的位置发生变化的话，文字盒的位置也会跟着改变(这里所说的文字盒在标准中被叫做strut)。<br>总结起来的话有以下两点：</p>
+<ul>
+<li>有一个区域叫做line-box，垂直方向上的对齐都是发生在这个区域里面，它有baseline，有文字盒，有上下边界。</li>
+<li>inline元素也有baseline和上下边界，inline元素是需要对齐的对象。<h2 id="Vertical-align属性的值"><a href="#Vertical-align属性的值" class="headerlink" title="Vertical-align属性的值"></a>Vertical-align属性的值</h2><img src="/images/17-09-22/5.png" alt=""><h2 id="Vertical这个属性到底是怎么起作用的呢？"><a href="#Vertical这个属性到底是怎么起作用的呢？" class="headerlink" title="Vertical这个属性到底是怎么起作用的呢？"></a>Vertical这个属性到底是怎么起作用的呢？</h2><h3 id="对齐一个Icon"><a href="#对齐一个Icon" class="headerlink" title="对齐一个Icon"></a>对齐一个Icon</h3></li>
+</ul>
+<p>我想将一个icon与文字对齐仅仅使icon的vertical-align属性的值设置为middle似乎不能产生令人满意的结果，例子如下图<br><img src="/images/17-09-22/6.png" alt=""></p>
+<pre><code>&lt;!-- left mark-up --&gt;
+&lt;span class=&quot;icon middle&quot;&gt;&lt;/span&gt;
+Centered?
+
+&lt;!-- right mark-up --&gt;
+&lt;span class=&quot;icon middle&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;middle&quot;&gt;Centered!&lt;/span&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  .icon   { display: inline-block;
+        /* size, color, etc. */ }
+
+  .middle { vertical-align: middle; }
+&lt;/style&gt;
+</code></pre><p>下面给出上图的辅助线版本<br><img src="/images/17-09-22/7.png" alt=""><br>原因就是左面的文字根本就没有发生对齐行为，它还是对齐于line-box的baseline。而vertical-align对齐的点是baseline加上半个x的距离(half of the x-height)。因此文字的最高点超过了icon的高度。<br>而右面的例子，文字与icon都对齐于一个中点，文字的baseline稍微下移，位于line-box的baseline的下方。结果是很好的达到了icon与文字对齐的效果。</p>
+<h2 id="line-box的baseline的移动问题"><a href="#line-box的baseline的移动问题" class="headerlink" title="line-box的baseline的移动问题"></a>line-box的baseline的移动问题</h2><p>这是一个Vertical-align的坑，line-box中的所有元素都会影响到baseline的位置。假设，一个元素按某种方式垂直对齐了，但是这种对齐方式会引起baseline的移动，又因为大部分的垂直对齐方式(除了top和bottom)和baseline有关，因此这个元素的垂直方向对齐的行为会引起该line-box内其他元素位置的调整。<br>下面还是一些例子</p>
+<ul>
+<li><p>一个很高的元素，其高度占满了整个line-box，那么vertical-align对其实没有影响的，在它的top和bottom之外没有空间让其移动。但是为了满足它的vertical-align的值，line-box的baseline会发生移动，左面的高元素的取值为text-bottom，矮元素的取值为baseline。右面的高元素的取值为text-top，你会看到baseline跳上去了<br><img src="/images/17-09-22/8.png" alt=""></p>
+<pre><code>&lt;!-- left mark-up --&gt;
+&lt;span class=&quot;tall-box text-bottom&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;short-box&quot;&gt;&lt;/span&gt;
+
+&lt;!-- right mark-up --&gt;
+&lt;span class=&quot;tall-box text-top&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;short-box&quot;&gt;&lt;/span&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  .tall-box,
+  .short-box   { display: inline-block;
+        /* size, color, etc. */ }
+
+  .text-bottom { vertical-align: text-bottom; }
+  .text-top    { vertical-align: text-top; }
+&lt;/style&gt;
+</code></pre><p>如果把高元素的vertical-align设置为其他值，也能看到类似的行为<br>甚至将vertical-align设置为bottom或者是top也会让baseline发生移动。这很奇怪，因为这时候应该就没baseline什么事儿了。<br><img src="/images/17-09-22/9.png" alt=""></p>
+<pre><code>&lt;!-- left mark-up --&gt;
+&lt;span class=&quot;tall-box bottom&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;short-box&quot;&gt;&lt;/span&gt;
+
+&lt;!-- right mark-up --&gt;
+&lt;span class=&quot;tall-box top&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;short-box&quot;&gt;&lt;/span&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  .tall-box,
+  .short-box { display: inline-block;
+       /* size, color, etc. */ }
+
+  .bottom    { vertical-align: bottom; }
+  .top       { vertical-align: top; }
+&lt;/style&gt;
+</code></pre><p>将两个更大的元素放在一个line里面，并且设置vertical-align的值让line-box的baseline移动。在满足vertical-align数值对齐的条件下，line-box的高度会自我调整，如左面的图。再增加第三个元素，第三个元素如果因为其vertical-align的设置不会超过line-box的边缘的话，它是不会影响到line-box的高度和baseline的位置的，如果它会超过line-box的边缘，那么line-box的高度和baseline的位置也会进行调整。在第二种情况下，另外两个元素的位置发生了下移。<br><img src="/images/17-09-22/11.png" alt=""></p>
+<pre><code>&lt;!-- left mark-up --&gt;
+&lt;span class=&quot;tall-box text-bottom&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;tall-box text-top&quot;&gt;&lt;/span&gt;
+
+&lt;!-- mark-up in the middle --&gt;
+&lt;span class=&quot;tall-box text-bottom&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;tall-box text-top&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;tall-box middle&quot;&gt;&lt;/span&gt;
+
+&lt;!-- right mark-up --&gt;
+&lt;span class=&quot;tall-box text-bottom&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;tall-box text-top&quot;&gt;&lt;/span&gt;
+&lt;span class=&quot;tall-box text-100up&quot;&gt;&lt;/span&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  .tall-box    { display: inline-block;
+         /* size, color, etc. */ }
+
+  .middle      { vertical-align: middle; }
+  .text-top    { vertical-align: text-top; }
+  .text-bottom { vertical-align: text-bottom; }
+  .text-100up  { vertical-align: 100%; }
+&lt;/style&gt;
+</code></pre><h2 id="inline元素下方可能会有一点空隙"><a href="#inline元素下方可能会有一点空隙" class="headerlink" title="inline元素下方可能会有一点空隙"></a>inline元素下方可能会有一点空隙</h2></li>
+</ul>
+<p>下面给出一个例子，如果尝试将li元素在垂直方向上进行对齐的话在，这个现象非常常见。<br><img src="/images/17-09-22/12.png" alt=""></p>
+<pre><code>&lt;ul&gt;
+  &lt;li class=&quot;box&quot;&gt;&lt;/li&gt;
+  &lt;li class=&quot;box&quot;&gt;&lt;/li&gt;
+  &lt;li class=&quot;box&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  .box { display: inline-block;
+ /* size, color, etc. */ }
+&lt;/style&gt;
+</code></pre><p>正如你所见，li元素是对齐baseline的，baseline的下方会给字母的一部分留出空间，因此会产生一个空隙。解决方案就是改变line-box的baseline的位置，比如将这些li这是为vertical-align:middle</p>
+<pre><code>&lt;ul&gt;
+  &lt;li class=&quot;box middle&quot;&gt;&lt;/li&gt;
+  &lt;li class=&quot;box middle&quot;&gt;&lt;/li&gt;
+  &lt;li class=&quot;box middle&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  .box    { display: inline-block;
+    /* size, color, etc. */ }
+
+  .middle { vertical-align: middle; }
+&lt;/style&gt;
+</code></pre><p>inline元素之间的空隙造成布局效果与理想状态发生偏差<br>这主要是因为inline元素本身的原因，但是因为如果要让vertical-align的值产生作用的话，inline元素是必备要求，因此了解一点也不错嘛<br>这个空隙来源于inline元素之间的空格，所有的inline元素之间的空白都会变成一个空格。如果你想让inline元素在水平上紧挨着，设置它们的宽度是不行的。因为之间存在空隙，所以行的宽度不够放下两个inline元素。一行会被破坏为两行。解决方案如下图的右侧<br><img src="/images/17-09-22/13.png" alt=""></p>
+<pre><code>&lt;!-- left mark-up --&gt;
+
+&lt;div class=&quot;half&quot;&gt;50% wide&lt;/div&gt;
+&lt;div class=&quot;half&quot;&gt;50% wide... and in next line&lt;/div&gt;
+&lt;!-- right mark-up --&gt;
+&lt;div class=&quot;half&quot;&gt;50% wide&lt;/div&gt;
+
+&lt;!--
+--&gt;
+&lt;div class=&quot;half&quot;&gt;50% wide&lt;/div&gt;
+
+&lt;style type=&quot;text/css&quot;&gt;
+  .half { display: inline-block;
+  width: 50%; }
+&lt;/style&gt;
+</code></pre><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>两个建议，如果vertical-align属性不起作用，那么问问自己：</p>
+<ul>
+<li>line-box的上下边缘以及baseline的位置在哪里？</li>
+<li>inline元素的上下边缘以及baseline的位置在哪里？</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/26/关于vertical-align你需要知道的事/" rel="next" title="关于vertical-align你需要知道的事">
+                <i class="fa fa-chevron-left"></i> 关于vertical-align你需要知道的事
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/28/Chrome-调试工具的一些高阶功能/" rel="prev" title="Chrome 调试工具的一些高阶功能">
+                Chrome 调试工具的一些高阶功能 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://i.imgur.com/jZ64dYw.jpg"
+               alt="七里田间" />
+          <p class="site-author-name" itemprop="name">七里田间</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Vertical-Align你需要知道的事情"><span class="nav-number">1.</span> <span class="nav-text">关于Vertical-Align你需要知道的事情</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertical-align的奇特之处"><span class="nav-number">1.1.</span> <span class="nav-text">Vertical-align的奇特之处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Vertical-align的要求"><span class="nav-number">1.2.</span> <span class="nav-text">使用Vertical-align的要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于边界和baseline"><span class="nav-number">1.3.</span> <span class="nav-text">关于边界和baseline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inline-block元素"><span class="nav-number">1.4.</span> <span class="nav-text">inline-block元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-box"><span class="nav-number">1.5.</span> <span class="nav-text">line-box</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertical-align属性的值"><span class="nav-number">1.6.</span> <span class="nav-text">Vertical-align属性的值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vertical这个属性到底是怎么起作用的呢？"><span class="nav-number">1.7.</span> <span class="nav-text">Vertical这个属性到底是怎么起作用的呢？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对齐一个Icon"><span class="nav-number">1.7.1.</span> <span class="nav-text">对齐一个Icon</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#line-box的baseline的移动问题"><span class="nav-number">1.8.</span> <span class="nav-text">line-box的baseline的移动问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inline元素下方可能会有一点空隙"><span class="nav-number">1.9.</span> <span class="nav-text">inline元素下方可能会有一点空隙</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">1.9.1.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">七里田间</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
